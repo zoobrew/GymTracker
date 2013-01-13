@@ -1,19 +1,14 @@
 package com.zoobrew.gymtracker;
 
 import android.app.ActionBar;
+import android.content.res.Resources;
 import android.os.Bundle;
-
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.NavUtils;
-import android.view.Gravity;
-import android.view.LayoutInflater;
+import android.support.v4.app.ListFragment;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
+import android.widget.ListView;
 
 public class MainActivity extends FragmentActivity implements
 		ActionBar.OnNavigationListener {
@@ -74,7 +69,7 @@ public class MainActivity extends FragmentActivity implements
 	public boolean onNavigationItemSelected(int position, long id) {
 		// When the given dropdown item is selected, show its contents in the
 		// container view.
-		Fragment fragment = new DummySectionFragment();
+		ListFragment fragment = new DummySectionFragment();
 		Bundle args = new Bundle();
 		args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
 		fragment.setArguments(args);
@@ -87,7 +82,7 @@ public class MainActivity extends FragmentActivity implements
 	 * A dummy fragment representing a section of the app, but that simply
 	 * displays dummy text.
 	 */
-	public static class DummySectionFragment extends Fragment {
+	public static class DummySectionFragment extends ListFragment {
 		/**
 		 * The fragment argument representing the section number for this
 		 * fragment.
@@ -96,18 +91,21 @@ public class MainActivity extends FragmentActivity implements
 
 		public DummySectionFragment() {
 		}
+		  @Override
+		  public void onActivityCreated(Bundle savedInstanceState) {
+		    super.onActivityCreated(savedInstanceState);
+		    Resources res = getResources();
+		    String Menu[] = res.getStringArray(R.array.menu_section1);
+		    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+		        android.R.layout.simple_list_item_1, Menu);
+		    setListAdapter(adapter);
+		  }
 
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			// Create a new TextView and set its text to the fragment's section
-			// number argument value.
-			TextView textView = new TextView(getActivity());
-			textView.setGravity(Gravity.CENTER);
-			textView.setText(Integer.toString(getArguments().getInt(
-					ARG_SECTION_NUMBER)));
-			return textView;
-		}
+		  @Override
+		  public void onListItemClick(ListView l, View v, int position, long id) {
+		    // Do something with the data
+
+		  }
 	}
 
 }
