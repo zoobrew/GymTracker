@@ -94,8 +94,23 @@ public class MainActivity extends FragmentActivity implements
 		  @Override
 		  public void onActivityCreated(Bundle savedInstanceState) {
 		    super.onActivityCreated(savedInstanceState);
+		    int number = getArguments().getInt(ARG_SECTION_NUMBER);
 		    Resources res = getResources();
-		    String Menu[] = res.getStringArray(R.array.menu_section1);
+		    String Menu[];
+		    switch (number){
+		    	case 1:
+		    		Menu = res.getStringArray(R.array.menu_section1);
+		    	case 2:
+		    		Menu = res.getStringArray(R.array.menu_section2);
+		    	case 3:
+		    		Menu = res.getStringArray(R.array.menu_section3);
+		    	case 4:
+		    		Menu = res.getStringArray(R.array.menu_section4);
+		    	case 5:
+		    		Menu = res.getStringArray(R.array.menu_section5);
+		    	default:
+		    		Menu = res.getStringArray(R.array.menu_section1);
+		    }
 		    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
 		        android.R.layout.simple_list_item_1, Menu);
 		    setListAdapter(adapter);
