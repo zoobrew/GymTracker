@@ -9,44 +9,47 @@
     <string name="menu_settings">Settings</string>
     <string name="title_section4">Sholders/Biceps</string>
     <string name="title_section5">Deadlift/Hamstrings</string>
+
     <string-array name="menu_section1">
-        <item >Bench Press (Power)</item>
-        <item >Incline Bench (Muscle)</item>
-        <item >DumbBell Bench</item>
-        <item >Dumbbell Flies</item>
-        <item >Skull Crushers</item>
-        <item >Seated French Press</item>
-        <item >Cable Extension</item>
+        <item>Bench Press (Power)</item>
+        <item>Incline Bench (Muscle)</item>
+        <item>DumbBell Bench</item>
+        <item>Dumbbell Flies</item>
+        <item>Skull Crushers</item>
+        <item>Seated French Press</item>
+        <item>Cable Extension</item>
     </string-array>
     <string-array name="menu_section2">
-        <item >Barbell Row</item>
-        <item >Dumbbell Row</item>
-        <item >Lat Pulldown</item>
-        <item >Seated Cable Row</item>
-        <item >Barbell Shrugs</item>
-        <item >Dumbbell Shrugs</item>
+        <item>Barbell Row</item>
+        <item>Dumbbell Row</item>
+        <item>Lat Pulldown</item>
+        <item>Seated Cable Row</item>
+        <item>Barbell Shrugs</item>
+        <item>Dumbbell Shrugs</item>
     </string-array>
     <string-array name="menu_section3">
-        <item >Squat</item>
-        <item >Leg Press</item>
-        <item >Front Squat</item>
-        <item >Leg Press</item>
-        <item >Seated Calf Raise</item>
+        <item>Squat</item>
+        <item>Leg Press</item>
+        <item>Front Squat</item>
+        <item>Leg Press</item>
+        <item>Seated Calf Raise</item>
     </string-array>
     <string-array name="menu_section4">
-        <item >Seated Barbell Press</item>
-        <item >Seated Arnold Press</item>
-        <item >Barbell Front Raise</item>
-        <item >Dumbbell Lat Raise</item>
-        <item >Pinwheel Curls</item>
-        <item >Standing Barbell Curl</item>
-        <item >Cable Preacher Curl</item>
+        <item>Seated Barbell Press</item>
+        <item>Seated Arnold Press</item>
+        <item>Barbell Front Raise</item>
+        <item>Dumbbell Lat Raise</item>
+        <item>Pinwheel Curls</item>
+        <item>Standing Barbell Curl</item>
+        <item>Cable Preacher Curl</item>
     </string-array>
     <string-array name="menu_section5">
-        <item >Deadlift</item>
-        <item >Romanian Deadlift</item>
-        <item >Leg Curl (Muscle)</item>
-        <item >Leg Curl (Burn)</item>
+        <item>Deadlift</item>
+        <item>Romanian Deadlift</item>
+        <item>Leg Curl (Muscle)</item>
+        <item>Leg Curl (Burn)</item>
     </string-array>
+
+    <string name="title_activity_exercise_detail">ExerciseDetailActivity</string>
 
 </resources>

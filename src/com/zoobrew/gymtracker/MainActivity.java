@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -71,9 +72,9 @@ public class MainActivity extends FragmentActivity implements
 	@Override
 	public boolean onNavigationItemSelected(int position, long itemId) {
 		// Create new fragment from our own Fragment class
-		ListFragment newFragment = new DummySectionFragment();
+		ListFragment newFragment = new ExerciseSelectionFragment();
 		Bundle args = new Bundle();
-		args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
+		args.putInt(ExerciseSelectionFragment.ARG_SECTION_NUMBER, position + 1);
 		newFragment.setArguments(args);
 		FragmentTransaction fragTransaction = getFragmentManager().beginTransaction();
 		// Replace whatever is in the fragment_container view with this fragment,
@@ -82,6 +83,7 @@ public class MainActivity extends FragmentActivity implements
 		fragTransaction.addToBackStack(null);
 		// Apply changes
 		fragTransaction.commit();
+		
 		return true;
 	}
 	/*@Override
@@ -104,14 +106,15 @@ public class MainActivity extends FragmentActivity implements
 	 * A dummy fragment representing a section of the app, but that simply
 	 * displays dummy text.
 	 */
-	public static class DummySectionFragment extends ListFragment {
+	public static class ExerciseSelectionFragment extends ListFragment {
 		/**
 		 * The fragment argument representing the section number for this
 		 * fragment.
 		 */
 		public static final String ARG_SECTION_NUMBER = "section_number";
+		public static final String ARG_EXCERCISE_NUMBER = "exercise_number";
 
-		public DummySectionFragment() {
+		public ExerciseSelectionFragment() {
 		}
 		
 		 @Override
@@ -186,7 +189,10 @@ public class MainActivity extends FragmentActivity implements
 
 		  @Override
 		  public void onListItemClick(ListView l, View v, int position, long id) {
-		    // Do something with the data
+			  // Do something with the data
+			  Intent intent = new Intent(getActivity(), ExerciseDetailActivity.class);
+			  intent.putExtra(ARG_EXCERCISE_NUMBER, position);
+			  startActivity(intent);
 
 		  }
 	}
