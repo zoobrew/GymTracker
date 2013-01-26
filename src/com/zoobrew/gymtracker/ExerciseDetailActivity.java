@@ -2,6 +2,7 @@ package com.zoobrew.gymtracker;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -17,14 +18,18 @@ public class ExerciseDetailActivity extends Activity implements OnSeekBarChangeL
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_exercise_detail);
 		repsbar1 = (SeekBar) findViewById(R.id.seekBar1);
-		//repsbar2 = (SeekBar) findViewById(R.id.seekbar2);
-		//repsbar3 = (SeekBar) findViewById(R.id.seekbar3);
+		repsbar2 = (SeekBar) findViewById(R.id.seekBar2);
+		repsbar3 = (SeekBar) findViewById(R.id.seekBar3);
 		repsbar1.setOnSeekBarChangeListener(this);
-		//repsbar2.setOnSeekBarChangeListener(this);
-		//repsbar3.setOnSeekBarChangeListener(this);
+		repsbar2.setOnSeekBarChangeListener(this);
+		repsbar3.setOnSeekBarChangeListener(this);
 		
 		prog1 = (TextView)findViewById(R.id.textView1);
-		
+		prog2 = (TextView)findViewById(R.id.textView2);
+		prog3 = (TextView)findViewById(R.id.textView3);
+		prog1.setText("0 rep(s)");
+		prog2.setText("0 rep(s)");
+		prog3.setText("0 rep(s)");
 	}
 
 	@Override
@@ -38,7 +43,15 @@ public class ExerciseDetailActivity extends Activity implements OnSeekBarChangeL
 	public void onProgressChanged(SeekBar seekBar, int progress,
 			boolean fromUser) {
 		//Change the number of reps to match the progress bar
-		prog1.setText(""+ progress);
+		if (seekBar == (SeekBar) findViewById(R.id.seekBar1)){
+			prog1.setText(progress + " rep(s)");
+		}
+		else if (seekBar == (SeekBar) findViewById(R.id.seekBar2)){
+			prog2.setText(progress + " rep(s)");
+		} 
+		else if (seekBar == (SeekBar) findViewById(R.id.seekBar3)){
+			prog3.setText(progress + " rep(s)");
+		}
 		
 	}
 
@@ -50,6 +63,7 @@ public class ExerciseDetailActivity extends Activity implements OnSeekBarChangeL
 	@Override
 	public void onStopTrackingTouch(SeekBar seekBar) {
 		// TODO Auto-generated method stub
+		prog1.setGravity(Gravity.CENTER);
 	}
 
 }
