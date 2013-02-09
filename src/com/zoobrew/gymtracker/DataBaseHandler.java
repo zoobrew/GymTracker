@@ -1,9 +1,9 @@
 package com.zoobrew.gymtracker;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Bundle;
 
 public class DataBaseHandler extends SQLiteOpenHelper{
 	
@@ -20,6 +20,7 @@ public class DataBaseHandler extends SQLiteOpenHelper{
     // Contacts Table Columns names
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
+    private static final String KEY_REPS = "reps";
     private static final String KEY_DATE = "today's_date";
  
     public DataBaseHandler(Context context) {
@@ -44,5 +45,20 @@ public class DataBaseHandler extends SQLiteOpenHelper{
         // Create tables again
         onCreate(db);
     }
+    
+    // Adding new contact
+    public void addContact(WorkOutExercise newSet) {
+        SQLiteDatabase db = this.getWritableDatabase();
+     
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME, newSet.getName()); 
+        values.put(KEY_REPS, newSet.getRep(1));
+     
+        // Inserting Row
+        db.insert(TABLE_NAME, null, values);
+        db.close(); // Closing database connection
+    }
+     
+
 
 }
